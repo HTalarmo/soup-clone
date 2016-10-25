@@ -5,3 +5,20 @@ TODO:
 - Items and how they work
 - Character advancement
 
+Character
+- Name
+- Hp
+- maxHp
+- Mana
+- maxMana
+- Damage
+- Armor
+- Ammo
+
+Player: Public Character
+- Level
+- xp
+- maxXp
+- Weapon
+- Equipment
+- Inventory
