@@ -1,0 +1,7 @@
+TODO:
+- ASCII graphics
+- Randomized map generation
+- Enemy AI and pathfinding
+- Items and how they work
+- Character advancement
+
