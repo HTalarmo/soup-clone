@@ -7,21 +7,16 @@ GraphicsEngine::GraphicsEngine()
 
 void GraphicsEngine::testGraphics()
 {
-    initscr();
-    start_color();
-    init_pair(1, COLOR_RED, COLOR_BLACK);
-    attron(COLOR_PAIR(1));
-    int row, col, curcol, currow;
-    getmaxyx(stdscr, row, col);
-    for(int i = 0; i < 10; i++)
-    {
-        curcol = col-10+i;
-        currow = row-30+abs(30-i*3);
-        std::string msg;
-        for(int n = 0; n < i; n++)
-        {
-            msg += "#";
-        }
-        mvprintw(curcol, currow, msg.c_str());
-    }
+    char mesg[]="Just a string";		/* message to be appeared on the screen */
+    int row,col;				/* to store the number of rows and *
+                        * the number of colums of the screen */
+    initscr();				/* start the curses mode */
+    getmaxyx(stdscr,row,col);		/* get the number of rows and columns */
+    mvprintw(row/2,(col-strlen(mesg))/2,"%s",mesg);
+                                       /* print the message at the center of the screen */
+    mvprintw(row-2,0,"This screen has %d rows and %d columns\n",row,col);
+    printw("Try resizing your window(if possible) and then run this program again");
+    refresh();
+    getch();
+    endwin();;
 }

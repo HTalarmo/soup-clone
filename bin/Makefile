@@ -36,7 +36,7 @@ DISTNAME      = soup-clone1.0.0
 DISTDIR = /home/murzac/koodit/soup-clone/bin/.tmp/soup-clone1.0.0
 LINK          = g++
 LFLAGS        = -m32 -Wl,-O1 -Wl,-rpath,/home/murzac/Qt5.5.1/5.5/gcc
-LIBS          = $(SUBLIBS)  
+LIBS          = $(SUBLIBS) -lncurses 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -48,8 +48,10 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../src/main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../src/main.cpp \
+		../src/graphicsengine.cpp 
+OBJECTS       = main.o \
+		graphicsengine.o
 DIST          = ../../../Qt5.5.1/5.5/gcc/mkspecs/features/spec_pre.prf \
 		../../../Qt5.5.1/5.5/gcc/mkspecs/common/unix.conf \
 		../../../Qt5.5.1/5.5/gcc/mkspecs/common/linux.conf \
@@ -179,7 +181,8 @@ DIST          = ../../../Qt5.5.1/5.5/gcc/mkspecs/features/spec_pre.prf \
 		../../../Qt5.5.1/5.5/gcc/mkspecs/features/exceptions.prf \
 		../../../Qt5.5.1/5.5/gcc/mkspecs/features/yacc.prf \
 		../../../Qt5.5.1/5.5/gcc/mkspecs/features/lex.prf \
-		../src/soup-clone.pro  ../src/main.cpp
+		../src/soup-clone.pro graphicsengine.h ../src/main.cpp \
+		../src/graphicsengine.cpp
 QMAKE_TARGET  = soup-clone
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = soup-clone
@@ -511,8 +514,11 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../src/main.cpp 
+main.o: ../src/main.cpp ../src/graphicsengine.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../src/main.cpp
+
+graphicsengine.o: ../src/graphicsengine.cpp ../src/graphicsengine.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o graphicsengine.o ../src/graphicsengine.cpp
 
 ####### Install
 

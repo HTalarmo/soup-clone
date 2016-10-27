@@ -7,7 +7,6 @@ int main()
 {
     GraphicsEngine engine;
     engine.testGraphics();
-    getline();
     return 0;
 }
 
