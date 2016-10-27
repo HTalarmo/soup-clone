@@ -1,5 +1,6 @@
 TODO:
 - ASCII graphics
+   - ncurses
 - Randomized map generation
 - Enemy AI and pathfinding
 - Items and how they work
@@ -22,3 +23,17 @@ Player: Public Character
 - Weapon
 - Equipment
 - Inventory
+
+Graphics things
+- Player
+- Map
+- Enemies
+- Item
+- UI
+- Is only updated upon player interaction
+	Upon player movement:
+	- Update map view
+	- Draw Player
+	- Draw Enemies
+	- Draw Items
+	- Draw UI
