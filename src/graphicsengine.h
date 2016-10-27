@@ -4,12 +4,13 @@
 #include <string>
 #include <ncurses.h>
 #include <cstring>
+#include <iostream>
+#include <fstream>
 
 class GraphicsEngine
 {
 public:
     GraphicsEngine();
-    void testGraphics();
 
 protected:
 
